@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> ATIVIDADE 15 </title>
+</head>
+<body>
+    <h1> Manipulação de Propriedades: </h1>
+    <p id = "demo"></p>
+    <p> Crie um objeto livro com título e autor. </p>
+    <p> o Adicione dinamicamente a propriedade ano. </p>
+    <p> o Altere o título. </p>
+    <p> o Exclua a propriedade autor. </p>
+    <p> o Mostre o objeto atualizado no console. </p>
+    <script> 
+        const livro = {
+            titulo: "O Alquimista",
+            autor: "Paulo Coelho"
+        };
+
+        // Adiciona dinamicamente a propriedade ano
+        const chave = "ano";
+        livro[chave] = 1988;
+
+        // Altera o título
+        livro.titulo = "O Alquimista - Edição Especial";
+
+        // Exclui a propriedade autor
+        delete livro.autor;
+
+        console.log(livro);
+
+        document.getElementById("demo").innerHTML = `
+        Título: livro.titulo <br>
+        Ano: livro.ano `;
+    </script>
+</body>
+</html>
+

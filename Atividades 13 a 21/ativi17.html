@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> ATIVIDADE 17 </title>
+</head>
+<body>
+    <h1> Filtrar Números Pares (filter): </h1>
+    <p id = "demo"></p>
+    <p> Dado o array [10, 15, 20, 25, 30], use filter para criar 
+        um array apenas com números pares. </p>
+    <script> 
+        const numeros = [10, 15, 20, 25, 30];
+
+        // Usa filter para criar um novo array apenas com números pares
+        const numerosPares = numeros.filter(function(num) {
+            return num % 2 === 0;
+        });
+
+        console.log("Originais:", numeros);
+        console.log("Pares:", numerosPares);
+
+        document.getElementById("demo").innerHTML = "Números Originais: " + numeros + "<br>" + "Números Pares: " + numerosPares;
+
+    </script>
+</body>
+</html>

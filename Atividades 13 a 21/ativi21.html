@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> ATIVIDADE 21 </title>
+</head>
+<body>
+    <h1> Controle de Fila de Atendimento </h1>
+    <p id = "demo"></p>
+    <p> Escreva um programa para controlar uma fila de atendimento, deve guardar o
+        nome da pessoa ao clicar no botão "entrar na fila" e inserir no final de 
+        uma fila.
+    <p>Quando a pessoa for atendida, deve clicar no botão "atender" que vai retirar 
+        o nome da pessoa que está no primeiro lugar na fila. Também guarde a data e 
+        hora que a pessoa entrou na fila (use Date.now() para obter essa informação.
+        Veja como formatar a data usando Intl.DateTimeFormat). </p>
+    <p> Quando ela for atendida (retirada da fila), deve calcular quanto tempo levou 
+        para ser atendida. </p>
+    <p> Use vetores para armazenar as informações. Para inserir no final da fila use 
+        o método "push()" e para remover do início da fila use o método "shift()". 
+        Crie um vetor para armazenar o nome e a hora (hora, minutos e segundos) que a 
+        pessoa entrou na fila. </p>
+    <p> Em outro vetor armazene o nome, data e hora que pessoa entrou na fila, data e 
+        hora que foi atendida e quanto tempo demorou para ser atendida.Cada vez que uma 
+        pessoa entrar na fila ou for atendida deve exibir os dados armazenados nos dois vetores.</p>
+    
+    <input type="text" id="nomePessoa" placeholder="Digite seu nome">
+    <button onclick="entrarNaFila()">Entrar na Fila</button>
+    <button onclick="atender()">Atender</button>
+
+    <h2>Fila Atual</h2>
+    <div id="fila"></div>
+
+    <h2>Pessoas Atendidas</h2>
+    <div id="atendidos"></div>
+    
+    <script> 
+        // Vetores para armazenar os nomes e horários
+        const filaNomes = [];
+        const filaHoras = [];
+        const pessoasAtendidas = [];
+
+        // Função para adicionar pessoa na fila
+        function entrarNaFila() {
+            const nome = document.getElementById("nomePessoa").value.trim();
+
+            if (nome === "") {
+                alert("Por favor, digite um nome.");
+                return;
+            }
+
+            const horaEntrada = Date.now(); // registra o horário atual
+            filaNomes.push(nome);
+            filaHoras.push(horaEntrada);
+
+            document.getElementById("nomePessoa").value = ""; // limpa o campo
+
+            mostrarFila();
+        }
+
+        // Função para atender a primeira pessoa da fila
+        function atender() {
+            if (filaNomes.length === 0) {
+                alert("Não há pessoas na fila.");
+                return;
+            }
+
+            const nomeAtendido = filaNomes.shift(); // remove o primeiro da fila
+            const horaEntrada = filaHoras.shift();
+            const horaSaida = Date.now();
+            const tempoEspera = horaSaida - horaEntrada; // tempo em milissegundos
+
+            pessoasAtendidas.push({
+                nome: nomeAtendido,
+                entrada: new Date(horaEntrada),
+                saida: new Date(horaSaida),
+                tempo: tempoEspera
+            });
+
+            mostrarFila();
+            mostrarAtendidos();
+        }
+
+        // Função para mostrar a fila na página
+        function mostrarFila() {
+            let texto = "";
+            for (let i = 0; i < filaNomes.length; i++) {
+                const horaFormatada = new Intl.DateTimeFormat('pt-BR', { dateStyle: 'short', timeStyle: 'medium' }).format(new Date(filaHoras[i]));
+                texto += `${i + 1}. ${filaNomes[i]} - Entrou em: ${horaFormatada}<br>`;
+            }
+            document.getElementById("fila").innerHTML = texto || "Fila vazia";
+        }
+
+        // Função para mostrar as pessoas atendidas
+        function mostrarAtendidos() {
+            let texto = "";
+            pessoasAtendidas.forEach((pessoa, index) => {
+                const entradaFormatada = new Intl.DateTimeFormat('pt-BR', { dateStyle: 'short', timeStyle: 'medium' }).format(pessoa.entrada);
+                const saidaFormatada = new Intl.DateTimeFormat('pt-BR', { dateStyle: 'short', timeStyle: 'medium' }).format(pessoa.saida);
+                const tempoSegundos = Math.floor(pessoa.tempo / 1000);
+                texto += `${index + 1}. ${pessoa.nome} - Entrou: ${entradaFormatada}, Atendido: ${saidaFormatada}, Tempo de espera: ${tempoSegundos} segundos<br>`;
+            });
+            document.getElementById("atendidos").innerHTML = texto || "Nenhuma pessoa atendida ainda";
+        }
+    </script>
+</body>
+</html>

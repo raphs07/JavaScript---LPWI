@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> ATIVIDADE 13 </title>
+</head>
+<body>
+    <h1> Criação de Objeto: </h1>
+    <p id = "demo"></p>
+    <P> Crie um objeto carro com propriedades marca, modelo e ano. Mostre todas as
+        propriedades no console, usando uma instrução console.log para cada uma das
+        propriedades. </P>
+    <script> 
+        const carro = {
+            marca: "FIAT",
+            modelo: "Punto",
+            ano: 2010
+        };
+
+        console.log("Marca: " + carro.marca);
+        console.log("Modelo: " + carro.modelo);
+        console.log("Ano: " + carro.ano);
+
+        document.getElementById("demo").innerHTML = `
+        Marca: $carro.marca <br>
+        Modelo: $carro.modelo <br> 
+        Ano: $carro.ano
+    `; 
+    
+    </script>
+</body>
+</html>

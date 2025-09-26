@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> ATIVIDADE 16 </title>
+</head>
+<body>
+    <h1> Dobrar Valores (map): </h1>
+    <p id = "demo"></p>
+    <p> Dado o array [1, 2, 3, 4, 5], use map para criar um 
+        novo array com cada número dobrado.</p>
+    <script> 
+        const numeros = [1, 2, 3, 4, 5];
+
+        // Usa map para criar um novo array com cada número dobrado
+        const numerosDobrados = numeros.map(function(num) {
+            return num * 2;
+        });
+
+        console.log("Originais:", numeros);
+        console.log("Dobrados:", numerosDobrados);
+
+        document.getElementById("demo").innerHTML = "Números Originais: " + numeros + "<br>" + "Números Dobrados: " + numerosDobrados;
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> ATIVIDADE 14 </title>
+</head>
+<body>
+    <h1> Metódo em obejeto: </h1>
+    <p id = "demo"></p>
+    <p> Adicione ao objeto carro um método descricao() que retorne uma string:
+       "Marca: <marca>, Modelo: <modelo>, Ano: <ano>". Chame esse método e 
+        mostre o resultado no console.</p>
+    <script> 
+        const carro = {
+            marca: "FIAT",
+            modelo: "Punto",
+            ano: 2010,
+            descricao: function(carro) {
+                return `Marca: ${this.marca}, Modelo: ${this.modelo}, Ano: ${this.ano}`;
+            }
+        };
+
+        console.log(carro.descricao());
+
+        document.getElementById("demo").innerHTML = carro.descricao();
+    </script>
+</body>
+</html>

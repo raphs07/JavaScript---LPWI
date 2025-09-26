@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> ATIVIDADE 20 </title>
+</head>
+<body>
+    <h1> Refazendo </h1>
+    <form id="formulario">
+        <input type="text" id="entrada" placeholder="Ex: 1,2,3,4,5" required>
+        <button type="submit">Enviar</button>
+    </form>
+    <p id = "demo"></p>
+    <p> Refaça os exercícios que precisam de entrada de dados substituindo 
+        o prompt por um formulário. Também faça com que a resposta apareça 
+        na própria página HTML em lugar do console.</p>
+    <script> 
+     const formulario = document.getElementById("formulario");
+        const demo = document.getElementById("demo");
+
+        formulario.addEventListener("submit", event => {
+            event.preventDefault(); // evita que a página recarregue
+
+            // Pega os valores do input e transforma em array de números
+            const numeros = document.getElementById("entrada")
+                .value
+                .split(",")
+                .map(num => Number(num.trim()));
+
+            // Exercícios reformulados
+
+            // 1. Dobrar valores (map)
+            const numerosDobrados = numeros.map(num => num * 2);
+
+            // 2. Filtrar números pares (filter)
+            const numerosPares = numeros.filter(num => num % 2 === 0);
+
+            // 3. Ordenar números (sort)
+            const numerosOrdenados = [...numeros].sort((a, b) => a - b);
+
+            // 4. Encadeando métodos: filtrar > 5 e multiplicar por 2
+            const resultadoEncadeado = numeros
+                .filter(num => num > 5)
+                .map(num => num * 2);
+
+            // Exibe todos os resultados na página
+            demo.innerHTML = `
+                <strong>Números Originais:</strong> ${numeros.join(", ")} <br><br>
+                <strong>Dobrados:</strong> ${numerosDobrados.join(", ")} <br>
+                <strong>Pares:</strong> ${numerosPares.join(", ")} <br>
+                <strong>Ordenados:</strong> ${numerosOrdenados.join(", ")} <br>
+                <strong>Maior que 5 e multiplicados por 2:</strong> ${resultadoEncadeado.join(", ")}
+            `;
+    });
+    </script>
+</body>
+</html>
