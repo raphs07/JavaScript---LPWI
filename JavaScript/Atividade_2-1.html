@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Erros com const</title>
+</head>
+<body>
+  <h2>Exemplo com constantes em JavaScript e seus erros</h2>
+
+  <script>
+    const PI = 3.14159;
+
+    alert("<strong>a)</strong> PI foi declarado com o valor: " + PI + "<br>");
+
+    try {
+      PI = 3.14;
+    } catch (erro) {
+      alert("Erro ao tentar alterar PI: " + erro + "<br>");
+      alert("-> Isso acontece porque 'const' cria uma constante, ou seja, uma vez que o 'const' recebe um valor, esse valor não pode ser alterado.<br><br> <-");
+    }
+
+    try {
+      const SemanasDoAno;
+      SemanasDoAno = 52;
+    } catch (erro) {
+      alert("<strong>b)</strong> Erro ao declarar 'const SemanasDoAno;' sem valor.<br>");
+      alert("Erro: " + erro + "<br>");
+      alert("-> Isso acontece porque uma constante em JavaScript precisa ser inicializada no momento da declaração.<br> <-");
+      alert("---> Ou seja, a forma correta seria: <code>const SemanasDoAno = 52;</code><br> <---");
+    }
+  </script>
+</body>
+</html>

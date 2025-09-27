@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Verificação de Idade</h2>
+
+  <script>
+
+    let idade = prompt("Digite sua idade:");
+
+    idade = Number(idade);
+
+    if (idade < 12) {
+      alert("Criança");
+    } else if (idade >= 12 && idade <= 17) {
+      alert("Adolescente");
+    } else if (idade >= 18) {
+      alert("Adulto");
+    } else {
+      alert("Idade inválida!");
+    }
+  </script>
+</body>
+</html>
