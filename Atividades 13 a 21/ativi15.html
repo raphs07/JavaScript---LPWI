@@ -15,26 +15,27 @@
     <p> o Mostre o objeto atualizado no console. </p>
     <script> 
         const livro = {
-            titulo: "O Alquimista",
-            autor: "Paulo Coelho"
+            titulo: "Orgulho e Preconceito",
+            autor: "Jane Austen"
         };
 
         // Adiciona dinamicamente a propriedade ano
         const chave = "ano";
-        livro[chave] = 1988;
+        livro[chave] = 1813;
 
         // Altera o título
-        livro.titulo = "O Alquimista - Edição Especial";
+        livro.titulo = "Orgulho e Preconceito - Edição Especial";
 
         // Exclui a propriedade autor
         delete livro.autor;
 
         console.log(livro);
 
-        document.getElementById("demo").innerHTML = `
-        Título: livro.titulo <br>
-        Ano: livro.ano `;
+        document.getElementById("demo").innerHTML = 
+        "Título:" + livro.titulo + "<br>" +
+        "Ano:" + livro.ano + "<br>";
     </script>
 </body>
 </html>
+
 
